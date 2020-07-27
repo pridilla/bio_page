@@ -178,6 +178,13 @@ class RidillaTitle extends StatelessWidget{
 var smallTextStyle = TextStyle(
   fontSize: 13,
   fontWeight: FontWeight.w300,
+  color: Colors.black,
+);
+
+var smallBlueTextStyle = TextStyle(
+  fontSize: 13,
+  fontWeight: FontWeight.w300,
+  color: Colors.blue,
 );
 
 var smallBoldTextStyle = TextStyle(

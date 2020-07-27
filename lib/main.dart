@@ -39,7 +39,8 @@ class _MyHomePageState extends State<MyHomePage> {
     return ChangeNotifierProvider(
       create: (context) => ChangeActivation(),
       child: Scaffold(
-        body: Center(
+        body: Align(
+          alignment: Alignment.topCenter,
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -61,8 +62,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     width: 900,
                     child: Center(
                       child: Consumer<ChangeActivation>(
-                        builder: (context, x, _) => Wrap(
-                          direction: Axis.vertical,
+                        builder: (context, x, _) => Column(
+
                           children: cards.where(
                             (e){
                               bool toReturn = false;

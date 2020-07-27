@@ -1,5 +1,7 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'card.dart';
 
 var cards = [
@@ -155,10 +157,19 @@ var cards = [
       children: [
         Wrap(
           children: [
-            Linkify(
-              text: "Helfni ist ein vielversprechender Start-up, dessen Ziel ist, die Freiwilligen in der Slowakei zu unterstützen.\n\nHelfni hat mich sehr stark motiviert, meine Programmierfähigkeiten zu verbessern, als auch zu lernen, ein Team zu leiten. Besuchen Sie doch unsere Webseite https://helfni.sk",
-              style: smallTextStyle,
-              textAlign: TextAlign.justify,
+            RichText(
+              text: TextSpan(
+                text: "Helfni ist ein vielversprechender Start-up, dessen Ziel ist, die Freiwilligen in der Slowakei zu unterstützen.\n\nHelfni hat mich sehr stark motiviert, meine Programmierfähigkeiten zu verbessern, als auch zu lernen, ein Team zu leiten. Besuchen Sie doch unsere Webseite ",
+                style: smallTextStyle,
+                children: [
+                  TextSpan(
+                    text: "helfni.sk.",
+                    style: smallBlueTextStyle,
+                    recognizer: TapGestureRecognizer()..onTap = (){launch("https://helfni.sk");}
+                  )
+                ]
+              ),
+              
             ),
           ],
         ),
